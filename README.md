@@ -46,7 +46,7 @@ Role Variables
 |variable|comment|default|
 |--------|-------|-------|
 |laravel_app_release_version|Release Number.(version number, datetime, etc)|1|
-|laravel_local_app_path|Path where deploy application local_path(for rsync)|../../../../src/|
+|laravel_local_app_path|Application local_path(for rsync)|../../../../src/|
 |laravel_app_path|Path where application will be deployed on server.|/var/www/app|
 |laravel_app_current_path||{{ laravel_app_path }}/current|
 |laravel_app_releases_path||{{ laravel_app_path }}/releases|
