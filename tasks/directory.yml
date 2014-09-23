@@ -1,0 +1,30 @@
+---
+- name: Create application root directory
+  file: dest={{ laravel_app_path }} mode=0755 state=directory
+
+- name: Create application releases directory
+  file: dest={{ laravel_app_releases_path }} mode=0755 state=directory
+
+- name: Create application shared directory
+  file: dest={{ laravel_app_shared_path }} mode=0755 state=directory
+
+- name: Create application shared/storage directory
+  file: dest={{ laravel_app_shared_path }}/storage mode=0777 state=directory
+
+- name: Create application shared/storage sub directories
+  file: dest={{ laravel_app_shared_path }}/storage/{{ item }} mode=0777 state=directory
+  with_items:
+    - cache
+    - logs
+    - meta
+    - sessions
+    - views
+
+- name: Register variable that application release VERSION directory is exists
+  stat: path={{ laravel_app_releases_version_path }}
+  register: release
+
+- name: Create application releases/VERSION directory when directory is not exists
+  file: dest={{ laravel_app_releases_version_path }} mode=0755 state=directory
+  when: not release.stat.exists
+

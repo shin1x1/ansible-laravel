@@ -1,0 +1,29 @@
+---
+- name: Create directory
+  include: directory.yml
+
+- name: Deploy application code
+  include: deploy.yml
+  when: not release.stat.exists
+
+- name: Install composer
+  include: composer.yml
+
+- name: Symlink releases/VERSION to current
+  file: src={{ laravel_app_releases_version_path }} dest={{ laravel_app_current_path }} state=link
+  when: laravel_deploy != "share"
+
+- name: Migrate database
+  command: php artisan migrate --env={{ laravel_env }} --force chdir={{ laravel_app_current_path }}
+  when: not release.stat.exists
+
+- name: Execute database seeders
+  include: db_seed.yml
+  when: laravel_db_seeds > 0
+
+- name: Execute PHPUnit
+  include: phpunit.yml
+  when: laravel_phpunit
+
+- name: Clear cache
+  command: php artisan cache:clear chdir={{ laravel_app_current_path }}

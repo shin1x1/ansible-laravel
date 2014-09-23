@@ -1,0 +1,4 @@
+---
+- name: Execute database seeder
+  command: php artisan db:seed --class={{ item }} --env={{ laravel_env }} chdir={{ laravel_app_current_path }}
+  with_items: laravel_db_seeds

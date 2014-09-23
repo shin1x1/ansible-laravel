@@ -1,0 +1,4 @@
+---
+- name: Deploy application code when laravel_deploy is rsync
+  synchronize: src={{ laravel_local_app_path }} dest={{ laravel_app_releases_version_path }}
+  when: laravel_deploy == "rsync"

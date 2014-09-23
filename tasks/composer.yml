@@ -1,0 +1,8 @@
+---
+- name: Install composer when laravel_deploy is share
+  command: composer install chdir={{ laravel_app_current_path }}
+  when: laravel_deploy == "share"
+
+- name: Install composer when laravel_deploy is git
+  command: composer install chdir={{ laravel_app_releases_version_path }}
+  when: laravel_deploy == "git"
