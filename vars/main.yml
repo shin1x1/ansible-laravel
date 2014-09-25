@@ -12,4 +12,3 @@ laravel_app_shared_path: '{{ laravel_app_path }}/shared'
 laravel_deploy: share
 laravel_env: local
 laravel_phpunit: no
-laravel_db_seeds:

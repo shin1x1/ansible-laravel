@@ -17,10 +17,6 @@
   command: php artisan migrate --env={{ laravel_env }} --force chdir={{ laravel_app_current_path }}
   when: not release.stat.exists
 
-- name: Execute database seeders
-  include: db_seed.yml
-  when: laravel_db_seeds > 0
-
 - name: Execute PHPUnit
   include: phpunit.yml
   when: laravel_phpunit
