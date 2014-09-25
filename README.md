@@ -1,5 +1,4 @@
-Laravel
-=========
+# Laravel
 
 Ansible role to easily deploy Laravel 4 applications. It's inspired by [https://github.com/servergrove/ansible-symfony2](https://github.com/servergrove/ansible-symfony2).
 
@@ -26,11 +25,9 @@ This role is supported below features.
         └── views
 ```
 
-Application Settings
----------------------
+## Laravel Application Settings
 
-Storage directory
-=====================
+### Storage directory
 
 Application storage directory change to below.
 
@@ -39,9 +36,7 @@ Application storage directory change to below.
 ```
 
 
-Role Variables
---------------
-
+## Role Variables
 
 |variable|comment|default|
 |--------|-------|-------|
@@ -58,13 +53,11 @@ Role Variables
 |laravel_db_seeds|Execute Database seeder.(List)|None|
 
 
-Dependencies
-------------
+## Dependencies
 
 None
 
-Example Playbook
-----------------
+## Example Playbook
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
@@ -79,13 +72,11 @@ Including an example of how to use your role (for instance, with variables passe
       roles:
         - shin1x1.laravel
 
-License
--------
+## License
 
 MIT
 
-Author Information
-------------------
+## Author Information
 
 Contributions are welcome: https://github.com/shin1x1/ansible-laravel
 
