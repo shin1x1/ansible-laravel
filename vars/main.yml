@@ -1,7 +1,7 @@
 ---
 laravel_app_release_version: 1
 
-laravel_local_app_path: ../../../../src/
+laravel_local_app_path: /nothing
 
 laravel_app_path: /var/www/app
 laravel_app_current_path: '{{ laravel_app_path }}/current'
